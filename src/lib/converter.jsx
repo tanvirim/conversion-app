@@ -1,9 +1,24 @@
-export const toCelcius = (farhenheit) => {
-  return ((farhenheit - 32) * 5) / 9;
+export const fromCelsiusToFarhenheit = (celsius) => {
+  return (celsius * 9) / 5 + 32;
+};
+export const fromFahrenheitToCelsius = (fahrenheit) => {
+  return ((fahrenheit - 32) * 5) / 9;
+};
+export const fromFahrenheitToKelvin = (fahrenheit) => {
+  const celsius = ((fahrenheit - 32) * 5) / 9;
+  return celsius + 273.15;
 };
 
-export const toFarhenheit = (celcius) => {
-  return (celcius * 9) / 5 + 32;
+export const fromCelsiusToKelvin = (celsious) => {
+  return celsious + 273.15;
+};
+
+export const fromKelvinToCelsius = (kelvin) => {
+  return kelvin - 273.15;
+};
+
+export const fromKelvinToFarhenheit = (kelvin) => {
+  return (kelvin - 273.15) * (9 / 5) + 32;
 };
 
 export const converter = (temperature, convertTo) => {

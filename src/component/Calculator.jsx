@@ -1,7 +1,15 @@
 import React from "react";
 import BoilingVerdict from "./BoilingVerdict";
 import TemperatureInput from "./TemperatureInput";
-import { converter, toCelcius, toFarhenheit } from "../lib/converter";
+import {
+  converter,
+  fromCelsiusToFarhenheit,
+  fromCelsiusToKelvin,
+  fromFahrenheitToCelsius,
+  fromFahrenheitToKelvin,
+  fromKelvinToCelsius,
+  fromKelvinToFarhenheit,
+} from "../lib/converter";
 
 export default class Calculator extends React.Component {
   state = {
@@ -10,12 +18,13 @@ export default class Calculator extends React.Component {
   };
 
   scaleName = {
-    c: "celcious",
+    c: "celsius",
     f: "farhenheit",
+    k: "kelvin",
   };
 
   onChangeHandler = (e, scale) => {
-    console.log(e.target.value);
+    console.log(e.target.value, scale);
 
     this.setState({
       temperature: e.target.value,
@@ -25,30 +34,47 @@ export default class Calculator extends React.Component {
   render() {
     const { temperature, scale } = this.state;
 
-    const celsius =
-      scale === this.scaleName.f
-        ? converter(temperature, toCelcius)
-        : temperature;
-    const farhenheit =
-      scale === this.scaleName.c
-        ? converter(temperature, toFarhenheit)
-        : temperature;
+    const { c, f, k } = this.scaleName;
+
+    let celsius = "";
+    let farhenheit = "";
+    let kelvin = "";
+
+    if (scale === c) {
+      celsius = temperature;
+      farhenheit = converter(temperature, fromCelsiusToFarhenheit);
+      kelvin = converter(temperature, fromCelsiusToKelvin);
+    } else if (scale === f) {
+      farhenheit = temperature;
+      celsius = converter(temperature, fromFahrenheitToCelsius);
+      kelvin = converter(temperature, fromFahrenheitToKelvin);
+    } else {
+      kelvin = temperature;
+      celsius = converter(temperature, fromKelvinToCelsius);
+      farhenheit = converter(temperature, fromKelvinToFarhenheit);
+    }
 
     return (
       <>
         <TemperatureInput
-          scale={this.scaleName.c}
+          scale={c}
           onChangeHandler={this.onChangeHandler}
           temperature={celsius}
         />
 
         <TemperatureInput
-          scale={this.scaleName.f}
+          scale={f}
           onChangeHandler={this.onChangeHandler}
           temperature={farhenheit}
         />
 
-        <BoilingVerdict celcious={parseFloat(temperature)} />
+        <TemperatureInput
+          scale={k}
+          onChangeHandler={this.onChangeHandler}
+          temperature={kelvin}
+        />
+
+        <BoilingVerdict celcious={parseFloat(celsius)} />
       </>
     );
   }
