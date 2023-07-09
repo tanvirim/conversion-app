@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 import TemperatureCalculator from "./component/temperature/Calculator";
+import MassCalculator from "./component/mass/Calculator";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class App extends React.Component {
         </select>
 
         {selectedValue === "temperature" && <TemperatureCalculator />}
+        {selectedValue === "mass" && <MassCalculator />}
       </div>
     );
   }
