@@ -9,9 +9,9 @@ import {
   fromFahrenheitToKelvin,
   fromKelvinToCelsius,
   fromKelvinToFarhenheit,
-} from "../lib/converter";
+} from "../../lib/TempConverter";
 
-export default class Calculator extends React.Component {
+export default class TemperatureCalculator extends React.Component {
   state = {
     temperature: "",
     scale: "",
