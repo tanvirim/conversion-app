@@ -22,9 +22,9 @@ export default class MassCalculator extends React.Component {
       scale: scale,
     });
   };
+
   render() {
     const { mass, scale } = this.state;
-
     const { k, p, o, c } = this.scaleName;
 
     let kg = "";
@@ -34,24 +34,24 @@ export default class MassCalculator extends React.Component {
 
     if (scale === k) {
       kg = mass;
-      pound = mass * 2.20462;
-      ounce = mass * 35.274;
-      carat = mass * 5000;
+      pound = (mass * 2.20462).toFixed(2);
+      ounce = (mass * 35.274).toFixed(2);
+      carat = (mass * 5000).toFixed(2);
     } else if (scale === p) {
       kg = mass;
-      pound = mass / 2.205;
-      ounce = mass * 16;
-      carat = mass * 2268;
+      pound = (mass / 2.205).toFixed(2);
+      ounce = (mass * 16).toFixed(2);
+      carat = (mass * 2268).toFixed(2);
     } else if (scale === o) {
-      kg = mass / 35.274;
-      pound = mass / 16;
+      kg = (mass / 35.274).toFixed(2);
+      pound = (mass / 16).toFixed(2);
       ounce = mass;
-      carat = mass * 141.7;
+      carat = (mass * 141.7).toFixed(2);
     } else {
       carat = mass;
-      kg = mass / 5000;
-      pound = mass / 2268;
-      ounce = mass / 141.7;
+      kg = (mass / 5000).toFixed(2);
+      pound = (mass / 2268).toFixed(2);
+      ounce = (mass / 141.7).toFixed(2);
     }
 
     return (
