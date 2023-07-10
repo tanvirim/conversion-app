@@ -1,5 +1,6 @@
 import React from "react";
-import MassInput from "./MassInput";
+import Input from "../Input";
+import "./calculator.style.css";
 
 export default class MassCalculator extends React.Component {
   state = {
@@ -34,48 +35,36 @@ export default class MassCalculator extends React.Component {
 
     if (scale === k) {
       kg = mass;
-      pound = (mass * 2.20462).toFixed(2);
-      ounce = (mass * 35.274).toFixed(2);
-      carat = (mass * 5000).toFixed(2);
+      pound = mass * 2.20462;
+      ounce = mass * 35.274;
+      carat = mass * 5000;
     } else if (scale === p) {
-      kg = mass;
-      pound = (mass / 2.205).toFixed(2);
-      ounce = (mass * 16).toFixed(2);
-      carat = (mass * 2268).toFixed(2);
+      kg = mass / 2.20462;
+      pound = mass;
+      ounce = mass * 16;
+      carat = mass * 2268;
     } else if (scale === o) {
-      kg = (mass / 35.274).toFixed(2);
-      pound = (mass / 16).toFixed(2);
+      kg = mass / 35.274;
+      pound = mass / 16;
       ounce = mass;
-      carat = (mass * 141.7).toFixed(2);
+      carat = mass * 141.7;
     } else {
       carat = mass;
-      kg = (mass / 5000).toFixed(2);
-      pound = (mass / 2268).toFixed(2);
-      ounce = (mass / 141.7).toFixed(2);
+      kg = mass / 5000;
+      pound = mass / 2268;
+      ounce = mass / 141.7;
     }
 
     return (
-      <>
-        <MassInput scale={k} onChangeHandler={this.onChangeHandler} mass={kg} />
+      <div className="container">
+        <Input scale={k} onChangeHandler={this.onChangeHandler} value={kg} />
 
-        <MassInput
-          scale={p}
-          onChangeHandler={this.onChangeHandler}
-          mass={pound}
-        />
+        <Input scale={p} onChangeHandler={this.onChangeHandler} value={pound} />
 
-        <MassInput
-          scale={o}
-          onChangeHandler={this.onChangeHandler}
-          mass={ounce}
-        />
+        <Input scale={o} onChangeHandler={this.onChangeHandler} value={ounce} />
 
-        <MassInput
-          scale={c}
-          onChangeHandler={this.onChangeHandler}
-          mass={carat}
-        />
-      </>
+        <Input scale={c} onChangeHandler={this.onChangeHandler} value={carat} />
+      </div>
     );
   }
 }
