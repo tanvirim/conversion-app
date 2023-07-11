@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/conversion-app/static/css/main.f284ba2e.css",
+    "main.js": "/conversion-app/static/js/main.6e227aec.js",
+    "static/js/787.1059f703.chunk.js": "/conversion-app/static/js/787.1059f703.chunk.js",
+    "index.html": "/conversion-app/index.html",
+    "main.f284ba2e.css.map": "/conversion-app/static/css/main.f284ba2e.css.map",
+    "main.6e227aec.js.map": "/conversion-app/static/js/main.6e227aec.js.map",
+    "787.1059f703.chunk.js.map": "/conversion-app/static/js/787.1059f703.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f284ba2e.css",
+    "static/js/main.6e227aec.js"
+  ]
+}
