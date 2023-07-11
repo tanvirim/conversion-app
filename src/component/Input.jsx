@@ -1,11 +1,11 @@
-const TemperatureInput = ({ temperature, scale, onChangeHandler }) => {
+const Input = ({ value, scale, onChangeHandler }) => {
   return (
     <>
       <fieldset>
-        <legend>Enter Temperature in {scale}</legend>
+        <legend>Enter {scale}</legend>
         <input
           type="text"
-          value={temperature}
+          value={value}
           onChange={(e) => {
             onChangeHandler(e, scale);
           }}
@@ -15,4 +15,4 @@ const TemperatureInput = ({ temperature, scale, onChangeHandler }) => {
   );
 };
 
-export default TemperatureInput;
+export default Input;

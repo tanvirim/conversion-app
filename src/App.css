@@ -1,0 +1,26 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+select {
+  width: 400px; /* Set the desired width */
+  height: 40px; /* Set the desired height */
+  background-color: #78c1f3;
+  font-size: 18px;
+}
+
+body {
+  background-color: #9be8d8;
+}
+.container {
+  width: 400px;
+  background-color: #78c1f3;
+  font-size: 16px;
+}
+h1 {
+  color: #1e5d88;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import BoilingVerdict from "./BoilingVerdict";
-import TemperatureInput from "./TemperatureInput";
+import Input from "../Input";
+import "./calculator.style.css";
 import {
   converter,
   fromCelsiusToFarhenheit,
@@ -18,9 +19,9 @@ export default class TemperatureCalculator extends React.Component {
   };
 
   scaleName = {
-    c: "celsius",
-    f: "farhenheit",
-    k: "kelvin",
+    c: "Celsius",
+    f: "Farhenheit",
+    k: "Kelvin",
   };
 
   onChangeHandler = (e, scale) => {
@@ -55,27 +56,27 @@ export default class TemperatureCalculator extends React.Component {
     }
 
     return (
-      <>
-        <TemperatureInput
+      <div className="container">
+        <Input
           scale={c}
           onChangeHandler={this.onChangeHandler}
-          temperature={celsius}
+          value={celsius}
         />
 
-        <TemperatureInput
+        <Input
           scale={f}
           onChangeHandler={this.onChangeHandler}
-          temperature={farhenheit}
+          value={farhenheit}
         />
 
-        <TemperatureInput
+        <Input
           scale={k}
           onChangeHandler={this.onChangeHandler}
-          temperature={kelvin}
+          value={kelvin}
         />
 
         <BoilingVerdict celcious={parseFloat(celsius)} />
-      </>
+      </div>
     );
   }
 }
