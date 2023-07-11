@@ -9,10 +9,10 @@ export default class MassCalculator extends React.Component {
   };
 
   scaleName = {
-    k: "kg",
-    p: "pound",
-    o: "ounce",
-    c: "carat",
+    k: "Kg",
+    p: "Pound",
+    o: "Ounce",
+    c: "Carat",
   };
 
   onChangeHandler = (e, scale) => {

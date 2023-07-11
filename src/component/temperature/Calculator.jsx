@@ -19,9 +19,9 @@ export default class TemperatureCalculator extends React.Component {
   };
 
   scaleName = {
-    c: "celsius",
-    f: "farhenheit",
-    k: "kelvin",
+    c: "Celsius",
+    f: "Farhenheit",
+    k: "Kelvin",
   };
 
   onChangeHandler = (e, scale) => {
